@@ -50,3 +50,19 @@
 // 민우가 구매한 로또의 번호와 당첨 번호가 모두 일치하므로, 최고 순위와 최저 순위는 모두 1등입니다.
 
 // 실제로 사용되는 로또 순위의 결정 방식과는 약간 다르지만, 이 문제에서는 지문에 명시된 대로 로또 순위를 결정하도록 합니다.  ↩
+
+function solution(id_list, report, k) {
+  var answer = [];
+
+  let object = {};
+
+  const reduceArr = [...new Set(report)].map(ele => ele.split(' '));
+
+  id_list.forEach(ele => (object[`${ele}`] = 0));
+
+  for (let i = 0; i < reduceArr.length; i++) {
+    object[`${reduceArr[i][1]}`] = object[`${reduceArr[i][1]}`] + 1;
+  }
+
+  return object;
+}
