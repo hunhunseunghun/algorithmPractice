@@ -64,32 +64,32 @@
 //내풀이 미완료
 
 function solution(record) {
-    let userInfo = {}
-    let preRecord = [];
-    let result = []
-  
-    
-    record.map(ele => ele.split(" ")).map((ele,idx)=>{ 
-                        preRecord.push({status : ele[0], uid: ele[1], id: ele[2]})   
-                 }           
-    )
-    preRecord.map((ele,idx)=>{
-        const uid = ele.uid
-        const id = ele.id
-      if(ele.status === "Enter"){   
-          userInfo[`${uid}`] = id
-      }else if(ele.status ==="Change"){
-          userInfo[`${uid}`] = id
-      }    
-    })
-    preRecord.map((ele)=>{
-        if(ele.status === "Enter"){
-           result.push(`${userInfo[`${ele.uid}`]}님이 들어왔습니다.`)
-        } else if (ele.status === "Leave"){
-           result.push(`${userInfo[`${ele.uid}`]}님이 나갔습니다.`)
-        }
-    })
-    
-    
-    return result;
+  let userInfo = {};
+  let preRecord = [];
+  let result = [];
+
+  record
+    .map(ele => ele.split(' '))
+    .map((ele, idx) => {
+      preRecord.push({ status: ele[0], uid: ele[1], id: ele[2] });
+    });
+  preRecord.map((ele, idx) => {
+    const uid = ele.uid;
+
+    const id = ele.id;
+    if (ele.status === 'Enter') {
+      userInfo[`${uid}`] = id;
+    } else if (ele.status === 'Change') {
+      userInfo[`${uid}`] = id;
+    }
+  });
+  preRecord.map(ele => {
+    if (ele.status === 'Enter') {
+      result.push(`${userInfo[`${ele.uid}`]}님이 들어왔습니다.`);
+    } else if (ele.status === 'Leave') {
+      result.push(`${userInfo[`${ele.uid}`]}님이 나갔습니다.`);
+    }
+  });
+
+  return result;
 }

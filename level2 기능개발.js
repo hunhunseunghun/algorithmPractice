@@ -31,11 +31,14 @@
 // ※ 공지 - 2020년 7월 14일 테스트케이스가 추가되었습니다
 
 //내 풀이
+
 function solution(progresses, speeds) {
   let answer = [0];
+
   let completeDay = progresses.map((progress, index) =>
     Math.ceil((100 - progress) / speeds[index])
   );
+
   let standDay = completeDay[0];
 
   for (let i = 0, j = 0; i < completeDay.length; i++) {
@@ -43,9 +46,14 @@ function solution(progresses, speeds) {
       answer[j] += 1;
     } else {
       standDay = completeDay[i];
+
       answer[++j] = 1;
     }
   }
 
   return answer;
 }
+
+const player = () => {
+  return;
+};
