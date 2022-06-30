@@ -45,7 +45,7 @@ function solution(progresses, speeds) {
     if (completeDay[i] <= standDay) {
       answer[j] += 1;
     } else {
-      standDay = completeDay[i];
+      // standDay = completeDay[i];
 
       answer[++j] = 1;
     }
